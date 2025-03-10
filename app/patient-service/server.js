@@ -12,7 +12,8 @@ app.get('/', (req, res) => {
 // In-memory data store (replace with a database in a real application)
 let patients = [
   { id: '1', name: 'John Doe', age: 30, condition: 'Healthy' },
-  { id: '2', name: 'Jane Smith', age: 45, condition: 'Hypertension' }
+  { id: '2', name: 'Jane Smith', age: 45, condition: 'Hypertension' },
+  { id: '3', name: 'Manikanta Thota', age: 45, condition: 'Healthy' }
 ];
 
 app.get('/health', (req, res) => {
