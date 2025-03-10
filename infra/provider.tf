@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-south-1"
 }
 
 provider "kubernetes" {
@@ -37,8 +37,8 @@ resource "kubernetes_config_map" "aws_auth" {
     ])
     mapUsers = jsonencode([
   {
-    userarn = "arn:aws:iam::711387104213:user/sneha"
-    username = "sneha"
+    userarn = "arn:aws:iam::314146309097:user/mani"
+    username = "mani"
     groups = [
       "system:masters"
     ]
