@@ -7,7 +7,7 @@ variable "cluster_name" {
 variable "region" {
   description = "AWS region where resources will be deployed"
   type        = string
-  default     = "us-west-2"
+  default     = "ap-south-1"
 }
 
 variable "vpc_id" {
