@@ -17,12 +17,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 2: Configure AWS Credentials
-      - name: Configure AWS credentials for Docker/ECR
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Set up AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::314146309097:role/github-oidc
           aws-region: ap-south-1
+          id-token: true
           
       # Step 3: Create ECR Repository
       - name: Create ECR
