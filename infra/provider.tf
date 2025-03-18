@@ -23,7 +23,7 @@ data "aws_eks_cluster_auth" "eks" {
 
 resource "kubernetes_config_map" "aws_auth" {
   metadata {
-    name      = "aws-auth1"
+    name      = "aws-auth2"
     namespace = "kube-system"
   }
 
