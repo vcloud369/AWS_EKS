@@ -1,0 +1,63 @@
+name: Terraform Destroy
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: "us-east-1"
+  TF_VERSION: "1.5.0"
+
+jobs:
+  terraform-destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::314146309097:role/github-oidc
+          aws-region: us-east-1
+          id-token: true
+
+      # Install Terraform
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      # Initialize Terraform
+      - name: Terraform Init
+        run: |
+          cd infra
+          terraform init
+
+      # Validate Terraform configuration
+      - name: Terraform Validate
+        run: |
+          cd infra
+          terraform validate
+
+      # Run Terraform Plan
+      - name: Terraform Plan
+        run: |
+          cd infra
+          terraform plan -destroy -var-file="../env/dev/terraform.tfvars" -out=tfplan
+
+      # Run Terraform Destroy
+      - name: Terraform Destroy
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd infra
+          terraform apply -auto-approve tfplan
+          
