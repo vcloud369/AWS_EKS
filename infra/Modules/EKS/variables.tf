@@ -1,13 +1,13 @@
 variable "cluster_name" {
   description = "EKS Cluster name"
   type        = string
-  default     = "my-eks-cluster"
+  default     = "demo-eks-cluster"
 }
 
 variable "region" {
   description = "AWS region where resources will be deployed"
   type        = string
-  default     = "ap-south-1"
+  default     = "us-east-1"
 }
 
 variable "vpc_id" {
