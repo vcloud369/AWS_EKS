@@ -7,7 +7,7 @@ variable "vpc_cidr" {
 variable "vpc_name" {
   description = "Name tag for the VPC"
   type        = string
-  default     = "my-vpc"
+  default     = "demo-vpc"
 }
 
 variable "public_subnets" {
@@ -25,7 +25,7 @@ variable "private_subnets" {
 variable "availability_zones" {
   description = "List of availability zones for subnets"
   type        = list(string)
-  default     = ["ap-south-1a", "ap-south-1b"]
+  default     = ["us-east-1a", "us-east-1b"]
 }
 
 variable "enable_dns_support" {
