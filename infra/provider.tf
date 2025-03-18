@@ -23,7 +23,7 @@ data "aws_eks_cluster_auth" "eks" {
 
 resource "kubernetes_config_map" "aws_auth" {
   metadata {
-    name      = "aws-auth"
+    name      = "aws-auth1"
     namespace = "kube-system"
   }
 
@@ -37,8 +37,8 @@ resource "kubernetes_config_map" "aws_auth" {
     ])
     mapUsers = jsonencode([
   {
-    userarn = "arn:aws:iam::314146309097:user/mani"
-    username = "mani"
+    userarn = "arn:aws:iam::314146309097:user/manikanta"
+    username = "manikanta"
     groups = [
       "system:masters"
     ]
