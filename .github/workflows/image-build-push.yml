@@ -24,7 +24,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::314146309097:role/github-oidc
-          aws-region: ap-south-1
+          aws-region: us-east-1
           id-token: true
           
       # Step 3: Create ECR Repository
@@ -41,7 +41,7 @@ jobs:
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
         with:
-          region: ap-south-1
+          region: us-east-1
 
       # Step 6: Build patient-service Docker image
       - name: Build patient-service Docker image
