@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: "ap-south-1"
+  AWS_REGION: "us-east-1"
   TF_VERSION: "1.5.0"
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::314146309097:role/github-oidc
-          aws-region: ap-south-1
+          aws-region: us-east-1
           id-token: true
 
       # Install Terraform
