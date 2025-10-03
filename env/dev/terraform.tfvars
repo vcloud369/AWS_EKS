@@ -10,5 +10,5 @@ instance_types = ["t3.medium"]
 desired_size   = 2
 min_size       = 1
 max_size       = 3
-image_url = "314146309097.dkr.ecr.us-west-1.amazonaws.com/appointment-service:latest"
-image_url_patient = "314146309097.dkr.ecr.us-west-1.amazonaws.com/patient-service:latest"
+image_url = "850014722537.dkr.ecr.us-west-1.amazonaws.com/appointment-service:latest"
+image_url_patient = "850014722537.dkr.ecr.us-west-1.amazonaws.com/patient-service:latest"
