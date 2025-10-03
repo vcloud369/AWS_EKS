@@ -2,18 +2,25 @@ provider "aws" {
   region = "us-west-1"
 }
 
+terraform {
+  required_providers {
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.20"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.10"
+    }
+  }
+}
+
+
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   token                  = data.aws_eks_cluster_auth.eks.token
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
 }
-
-provider "helm" {
-  kubernetes {
-    config_path = "~/.kube/config"
-  }
-}
-
 
 data "aws_eks_cluster_auth" "eks" {
   name = module.eks.cluster_name
