@@ -2,20 +2,6 @@ provider "aws" {
   region = "us-west-1"
 }
 
-terraform {
-  required_providers {
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.20"
-    }
-    helm = {
-      source  = "hashicorp/helm"
-      version = "~> 2.10"
-    }
-  }
-}
-
-
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   token                  = data.aws_eks_cluster_auth.eks.token
