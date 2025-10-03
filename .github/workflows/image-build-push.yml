@@ -40,7 +40,6 @@ jobs:
       # Step 5: Log in to Amazon ECR
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
-        aws-region: us-west-1
 
         
       # Step 6: Build patient-service Docker image
