@@ -2,7 +2,7 @@
 vpc_cidr = "10.0.0.0/16"
 public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
 private_subnets = ["10.0.3.0/24", "10.0.4.0/24"]
-availability_zones = ["us-west-1a", "us-west-1a"]
+availability_zones = ["us-west-1a", "us-west-1c"]
 /*security_groups = ["sg-09c3b12ec1c311254"] */
 repo_name = "eks-repo"
 cluster_name   = "demo1-eks-cluster"
