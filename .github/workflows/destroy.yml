@@ -28,7 +28,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::850014722537:role/github-oidc
           aws-region: us-west-1
-          id-token: true
+          
 
       # Install Terraform
       - name: Install Terraform
